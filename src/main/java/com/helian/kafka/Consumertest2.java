@@ -37,14 +37,14 @@ public class Consumertest2 extends Thread{
   
     private ConsumerConnector createConsumer() {  
         Properties properties = new Properties();  
-        properties.put("zookeeper.connect", "192.168.44.133:2181,192.168.44.129:2181");//声明zk  
+        properties.put("zookeeper.connect", "192.168.44.135:2181,192.168.44.129:2181,192.168.44.137:2181");//声明zk  
         properties.put("group.id", "group1");// 必须要使用别的组名称， 如果生产者和消费者都在同一组，则不能访问同一组内的topic数据  
         return Consumer.createJavaConsumerConnector(new ConsumerConfig(properties));  
      }  
       
       
     public static void main(String[] args) {  
-        new Consumertest2("test").start();// 使用kafka集群中创建好的主题 test   
+        new Consumertest2("topic2").start();// 使用kafka集群中创建好的主题 test   
           
     }  
        
