@@ -5,7 +5,6 @@ import java.util.Date;
 import java.util.Properties;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.helian.bean.User;
 
 import kafka.javaapi.producer.Producer;
@@ -37,12 +36,12 @@ public class Producertest {
            
           String msg = "主题topic2，当世界都一样"+"="+str;
           User user = new User();
-          user.setName("yh");
-          user.setAge(24);
+          user.setName("gy");
+          user.setAge(25);
           user.setTime(curDate);
           String string = JSON.toJSONString(user);
           System.out.println(string);
-          KeyedMessage<String, String> keyedMessage= new KeyedMessage<String, String>("test", string);
+          KeyedMessage<String, String> keyedMessage= new KeyedMessage<String, String>("test2", string);
           producer.send(keyedMessage);
        // }
       }
